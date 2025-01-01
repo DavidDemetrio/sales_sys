@@ -22,4 +22,33 @@ public class Order {
             System.out.println("Máximo de productos a ingresar: " + Order.MAX_PRODUCTS);
         }
     }
+
+    public double total() {
+        double total = 0;
+
+        for (int i = 0; i < this.productsCounter; i++) {
+            // encapsulamiento por que no accedemos directamente al valor del precio de la
+            // clase producto
+            // sino que ya es por un método. Ya que price es private
+            total += this.products[i].getPrice();
+        }
+
+        return total;
+    }
+
+    public void showOrder() {
+        System.out.println("Id Order: " + this.idOrder);
+        var totalOrder = this.total();
+        System.out.println("\tTotal de la Orden: $" + totalOrder);
+        System.out.println("\tProductos: ");
+
+        for (int i = 0; i < this.productsCounter; i++) {
+            System.out.println("\t\t" + this.products[i]);
+        }
+    }
+
+    public static void main(String[] args) {
+        var order = new Order();
+        order.showOrder();
+    }
 }
