@@ -46,9 +46,4 @@ public class Order {
             System.out.println("\t\t" + this.products[i]);
         }
     }
-
-    public static void main(String[] args) {
-        var order = new Order();
-        order.showOrder();
-    }
 }
